@@ -1,0 +1,17 @@
+<div class="card h-100" style="align-items: center;">
+    <img [src]="productCard.image" class="card-img-top" alt="..." style="width: 250px;" />
+    <div class="card-body">
+      <!--productList  -->
+      <h5 class="card-title">{{ productCard.title | uppercase }}</h5>
+      <p class="card-text" style="color: gray;font-weight: bold;">{{ productCard.category }}</p>
+      <p class="card-text">{{ productCard.description }}</p>
+      <h4 class="card-number">{{ productCard.price }} EGP</h4>
+      <!-- <p class="card-text">{{ productCard.vote_average | votesPercentage}} </p> -->
+      <button class="btn btn-primary" (click)="selectedProduct()">Add to cart</button>
+      <!-- <button mat-raised-button color="primary">Select Product</button> -->
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ productCard.release_date | date : 'MMMM YYYY' }}</small>
+    </div>
+
+  </div>
