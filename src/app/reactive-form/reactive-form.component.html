@@ -1,0 +1,173 @@
+<form [formGroup]="productForm" (ngSubmit)="submitReactiveForm()">
+    <div class="mb-3">
+      <label for="productNameID" class="form-label">Product name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productNameID"
+        aria-describedby="emailHelp"
+        name="productName"
+        formControlName="productName"
+      />
+    </div>
+    <div
+      *ngIf="
+        productFormControls.productName.touched &&
+        !productFormControls.productName.valid
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.productName.errors.required"
+        >Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.productName.errors.minlength"
+        >Min length 5 charcters</small
+      >
+    </div>
+
+
+    <div class="mb-3">
+        <label for="emailID" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailID"
+          aria-describedby="emailHelp"
+          name="email"
+          formControlName="email"
+        />
+    </div>
+
+    <div
+      *ngIf="
+        productFormControls.email.touched &&
+        !productFormControls.email.valid
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.email.errors.required"
+        >Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.email.errors.email"
+        >enter right email</small
+      >
+    </div>
+
+    <div class="mb-3">
+        <label for="usernameID" class="form-label">User name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usernameID"
+          aria-describedby="emailHelp"
+          name="username"
+          formControlName="username"
+        />
+      </div>
+
+
+      <div
+      *ngIf="
+        productFormControls.username.touched &&
+        !productFormControls.username.valid
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.username.errors.required"
+        >Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.username.errors.minlength"
+        >Min length 5 charcters</small
+      >
+    </div>
+
+
+
+
+
+
+
+      <div class="mb-3">
+        <label for="passwordID" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="passwordID"
+          aria-describedby="emailHelp"
+          name="password"
+          formControlName="password"
+        />
+      </div>
+
+      <div
+      *ngIf="
+        productFormControls.password.touched &&
+        !productFormControls.password.valid
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.password.errors.required"
+        >Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.password.errors.minlength"
+        >enter strong password</small
+      >
+    </div>
+
+      <div class="mb-3">
+        <label for="confirmpasswordID" class="form-label">Confirm Password</label>
+        <input
+          type="text"
+          class="form-control"
+          id="confirmpasswordID"
+          aria-describedby="emailHelp"
+          name="confirmPassword"
+          formControlName="confirmPassword"
+        />
+      </div>
+
+
+      <span class="text-danger"  *ngIf="productFormControls.confirmPassword.dirty && 
+      ((productFormControls.password.errors && productFormControls.password.errors.compare) || 
+      (productFormControls.confirmPassword.errors && productFormControls.confirmPassword.errors.compare)) && 
+      !productFormControls.confirmPassword.errors.required"
+      >Password Doesn't match</span> 
+
+      <!-- <div
+      *ngIf="
+        productFormControls.confirmPassword.touched &&
+        !productFormControls.confirmPassword.valid
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.confirmPassword.errors.required"
+        >Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="productFormControls.confirmPassword.errors.minlength"
+        >enter the same Password</small
+      >
+    </div> -->
+
+
+    <button type="submit" class="btn btn-primary my-5" [disabled]="!productForm.valid"> Submit </button>
+
+
+
+
+</form>
+  

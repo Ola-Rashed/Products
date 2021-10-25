@@ -1,0 +1,57 @@
+<form #productForm="ngForm" (ngSubmit)="submitForm(productForm)">
+    <div class="mb-3">
+      <label for="productNameID" class="form-label">Product name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productNameID"
+        aria-describedby="emailHelp"
+        name="productName"
+        #productName="ngModel"
+        [(ngModel)]="productForm.productName"
+        required
+        minlength="5"
+        maxlength="10"
+      />
+    </div>
+    <div
+      *ngIf="
+        (productName.touched && !productName.valid) ||
+        (productForm.submitted && !productName.valid)
+      "
+    >
+      <small class="text-danger" *ngIf="productName.errors.required"
+        >Required</small
+      >
+      <small class="text-danger" *ngIf="productName.errors.minlength"
+        >Min length 5 charcters</small
+      >
+    </div>
+  
+    <div class="mb-3">
+      <label for="releaseDataID" class="form-label">Release date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="releaseDataID"
+        aria-describedby="emailHelp"
+        name="releaseDate"
+        #releaseDate="ngModel"
+        [(ngModel)]="productForm.releaseDate"
+        required
+      />
+    </div>
+    <div
+      *ngIf="
+        (releaseDate.touched && !releaseDate.valid) ||
+        (productForm.submitted && !releaseDate.valid)
+      "
+    >
+      <small class="text-danger" *ngIf="releaseDate.errors.required"
+        >Required</small
+      >
+    </div>
+  
+    <button type="submit" class="btn btn-primary my-5">Submit</button>
+  </form>
+  
