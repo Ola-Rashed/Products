@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { Router } from '@angular/router';
 
 import { Product } from '../product';
 @Component({
@@ -257,7 +258,7 @@ export class ProductListComponent implements OnInit {
 
   ];
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -268,6 +269,7 @@ export class ProductListComponent implements OnInit {
 
   receiveProductCard(product){
     console.log("FROM PARENT",product)
+    this.router.navigate(['product-details']);
   }
 
 }

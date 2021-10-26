@@ -5,3 +5,19 @@ img[_ngcontent-uec-c17] {
     height: 289px;
     width: 50px;
 }
+.btn-primary {
+    color: #fff;
+    background-color: #6b05be;
+    border-color: #6b05be;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid rgb(182 24 209);
+    border-radius: .25rem;
+}
