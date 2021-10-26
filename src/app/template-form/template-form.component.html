@@ -1,6 +1,6 @@
 <form #productForm="ngForm" (ngSubmit)="submitForm(productForm)">
     <div class="mb-3">
-      <label for="productNameID" class="form-label">Product name</label>
+      <label for="productNameID" class="form-label">User Name</label>
       <input
         type="text"
         class="form-control"
@@ -28,7 +28,7 @@
       >
     </div>
   
-    <div class="mb-3">
+    <!-- <div class="mb-3">
       <label for="releaseDataID" class="form-label">Release date</label>
       <input
         type="date"
@@ -40,8 +40,8 @@
         [(ngModel)]="productForm.releaseDate"
         required
       />
-    </div>
-    <div
+    </div> -->
+    <!-- <div
       *ngIf="
         (releaseDate.touched && !releaseDate.valid) ||
         (productForm.submitted && !releaseDate.valid)
@@ -50,8 +50,33 @@
       <small class="text-danger" *ngIf="releaseDate.errors.required"
         >Required</small
       >
-    </div>
-  
+    </div> -->
+
+      <div class="mb-3">
+        <label for="passwordID" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="passwordID"
+          aria-describedby="emailHelp"
+          name="password"
+          formControlName="password"
+        />
+      </div>
+<!--  
+     <div
+        *ngIf="
+          (password.touched && !password.valid) ||
+          (productForm.submitted && !password.valid)"
+       >
+
+        <small class="text-danger" *ngIf="password.errors.required">Required</small>
+
+      </div> -->
+
     <button type="submit" class="btn btn-primary my-5">Submit</button>
-  </form>
+    
+  
+
+</form>
   
