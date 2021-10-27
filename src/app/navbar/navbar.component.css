@@ -24,3 +24,8 @@ h1{
 .active{
     color: rgb(2, 253, 2) !important;
 }
+
+#bt-nav{
+padding: 0px !important;
+margin-right: 5px;
+}

@@ -1,0 +1,61 @@
+
+<ng-container *ngIf="products.length !=0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products; let i = index">
+                            <td>{{i+1}}</td>
+                            <td><h5>{{item.title}}</h5></td>
+                            <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+                            <td style="width: 25%;">{{item.description}}</td>
+                            <th style="width: 12%;">{{item.price}}</th>
+                            <td style="width: 12%;">{{item.quantity}}</td>
+                            <td style="width: 12%;">{{item.total}}</td>
+                            <td>
+                                <button (click)="removeItem(item)" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                  </svg></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
+                            <td><button routerLink="/api-product" class="btn btn-primary" style="background-color: rgb(77, 3, 146);">Shop More</button></td>
+                            <td><strong>Total : ${{grandTotal}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+            <img src="data:image/png;base64,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" alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item </h6>
+            <button routerLink="/api-product" class="btn btn-primary"style="background-color: rgb(77, 3, 146);">Shop Now</button>
+        </div>
+    </div>
+</ng-container>

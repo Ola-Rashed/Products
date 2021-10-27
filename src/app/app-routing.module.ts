@@ -5,6 +5,10 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CounterComponent } from './counter/counter.component';
+import { UserListComponent } from './user-list/user-list.component';
+import {ApiProductComponent}from './api-product/api-product.component';
+import {CartComponent} from './cart/cart.component'
 
 const routes: Routes = [
   {
@@ -24,6 +28,22 @@ const routes: Routes = [
   {
     path: 'product-details/:id',
     component: ProductDetailsComponent,
+  },
+  {
+    path: 'api-product',
+    component: ApiProductComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+  },
+  {
+    path:'counter',
+    component : CounterComponent,
+  },
+  {
+    path:'users',
+    component : UserListComponent,
   },
   {
     path:'**',
